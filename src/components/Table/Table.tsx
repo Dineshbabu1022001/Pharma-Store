@@ -5,18 +5,13 @@ import {
   getPaginationRowModel,
   getSortedRowModel,
   flexRender,
-  type ColumnDef,
   type SortingState,
   getFilteredRowModel,
 } from "@tanstack/react-table";
 import { FaSort, FaSortUp, FaSortDown, FaSearch } from "react-icons/fa";
+import type { TableProps } from "../../types/table";
 
-type Props<T> = {
-  data: T[];
-  columns: ColumnDef<T>[];
-};
-
-const Table = <T extends object>({ data, columns }: Props<T>) => {
+const Table = <T extends object>({ data, columns }: TableProps<T>) => {
   const [filter, setFilter] = React.useState<string>("");
   const [sorting, setSorting] = React.useState<SortingState>([]);
 
